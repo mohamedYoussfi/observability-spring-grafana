@@ -1,0 +1,12 @@
+global:
+  scrape_interval: 10s
+  evaluation_interval: 10s
+
+scrape_configs:
+  - job_name: 'product_service'
+    metrics_path: '/actuator/prometheus'
+    scrape_interval: 5s
+    static_configs:
+      - targets: ['my-product-service:8081']
+        labels:
+          application: 'My Product Service Application'
